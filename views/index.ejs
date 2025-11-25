@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Selector</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <% if (locals.error) { %>
+<div class="error-box">
+    <p><%= error %></p>
+</div>
+<% } %>
+
+<% if(locals.joke){ %>
+
+<div id="jokeResult" class="joke-result">
+    <h2>😂 Your Joke</h2>
+
+    <p id="jokeText">
+        <% if(joke.type === "single"){ %>
+            <%= joke.joke %>
+        <% } else { %>
+            <%= joke.setup %><br><br><strong><%= joke.delivery %></strong>
+        <% } %>
+    </p>
+
+    <form action="/" method="get">
+        <button class="newJokeBtn">Get Another One 🔁</button>
+    </form>
+</div>
+
+<% } else { %>
+
+<div class="joke-box">
+    <h1>😂 Joke Selector</h1>
+
+    <form id="jokeForm" method="post" action="/getJoke">
+        <label>Choose Joke Category:</label>
+        <select id="category" name="category">
+            <option value="Any">Any</option>
+            <option value="Programming">Programming</option>
+            <option value="Pun">Pun</option>
+            <option value="Dark">Dark</option>
+            <option value="Spooky">Spooky</option>
+            <option value="Christmas">Christmas</option>
+        </select>
+
+        <br><br>
+
+        <label>Joke Type:</label>
+        <select id="type" name="type">
+            <option value="single">Single</option>
+            <option value="twopart">Two Part</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Get Joke 😁</button>
+    </form>
+</div>
+
+<% } %>
+
+</body>
+</html>
+

@@ -1,0 +1,155 @@
+/* ---------------- BACKGROUND (ADD YOUR SVG HERE) ---------------- */
+body {
+    margin: 0;
+    padding: 0;
+
+    /* You will paste your SVG pattern here */
+    background-image: url("/images/pattern.svg");
+    background-color: #d0e4f2;
+    background-repeat: repeat;
+    background-size: auto;
+
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/* ------------ CENTER EVERYTHING ------------ */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ---------------- COMIC STYLE BOX ---------------- */
+/* Match with geometric blue pattern */
+.joke-box {
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.90);  /* Soft white with transparency so pattern shows */
+    border: 3px solid #4a7c94;             /* Blue edge matching the pattern */
+    border-radius: 20px;
+    padding: 30px;
+    margin: 80px auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); /* Soft depth */
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Optional speech-tail */
+.joke-box::after {
+    content: "";
+    width: 0; 
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid rgba(255, 255, 255, 0.90);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Floating animation */
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Title */
+.joke-box h1 {
+    color: #2e5166;
+    margin-bottom: 15px;
+}
+
+/* Text */
+.joke-box p {
+    color: #2c3e50;
+}
+
+/* Buttons */
+button {
+    background: #2d6f9a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1c4f6d;
+}
+
+/* Dropdowns */
+select {
+    padding: 8px 10px;
+    border: 2px solid #4a7c94;
+    border-radius: 8px;
+    background: #eef4f7;
+}
+
+/* Hidden by default until a joke is fetched */
+.hidden {
+    display: none;
+}
+
+/* Result Box */
+.joke-result {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.92); 
+    border: 3px solid #4a7c94; 
+    border-radius: 20px;
+
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); 
+    animation: fadeIn 0.8s ease-out;
+
+    position: relative;
+}
+
+/* Joke Header */
+.joke-result h2 {
+    color: #2e5166;
+    margin-bottom: 15px;
+}
+
+/* Joke Text */
+.joke-result p {
+    color: #1c3342;
+    font-size: 19px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Button */
+.newJokeBtn {
+    background: #2d6f9a;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#newJokeBtn:hover {
+    background: #1c4f6d;
+}
+
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
